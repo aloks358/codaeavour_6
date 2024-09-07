@@ -1,45 +1,62 @@
-# codaeavour_6
-All the projects made for Codeavour Competition can be found here.
-
 # Codeavour Competition Management and Evaluation Portal
 
 ## Overview
 
-The **Codeavour Competition Management and Evaluation Portal** is a web-based platform designed to manage and evaluate student submissions for the Codeavour coding competition. This portal facilitates the collection of online project submissions, offline pitch evaluations, and grading, while generating downloadable winners lists at regional, national, and international levels. Additionally, the portal provides analytics to monitor key competition metrics such as registrations, submissions, and event progress across different countries.
+The **Codeavour Competition Management and Evaluation Portal** is a web-based platform designed to manage and evaluate student submissions for the Codeavour coding competition. The portal allows partners and admins to view, grade, and track project submissions, generate winners lists, and monitor progress across regional, national, and international levels. It also provides real-time notifications and data dashboards for effective event management.
+
+## Tech Stack
+
+- **Frontend**: React.js, Axios, Chart.js/D3.js for visualization.
+- **Backend**: Node.js, Express.js, Socket.io for real-time communication.
+- **Database**: PostgreSQL with Sequelize ORM.
+- **Background Jobs**: Bull.js with Redis for task queuing.
+- **Deployment**: Docker, AWS Elastic Beanstalk, Nginx for reverse proxy.
 
 ## Features
 
 ### Core Features:
-- **Submission Management**: Allows teams to submit their projects (online presentations and offline pitches).
-- **Grading System**: Regional and country partners can evaluate teams' submissions and record grades and feedback.
-- **Notification System**: Sends email notifications to partners when submissions are received or evaluations are due.
-- **Winners List Generation**: Automatically generates winners lists for regional, national, and international events, with downloadable reports.
-- **Dashboard**: Displays key statistics such as country-wise registrations, project submissions, event dates, and winners lists for administrators and partners.
-
+- **Submission Management**: Teams can upload projects, which are stored securely.
+- **Grading System**: Partners can evaluate and grade submissions, adding feedback for each project.
+- **Real-time Notifications**: Partners receive notifications when new submissions are uploaded or grading deadlines approach.
+- **Winners List**: Automatically generates winners lists for each stage (regional, national, international) and allows for downloads.
+- **Data Dashboard**: Displays country-wise registration data, submission statistics, and event information.
+  
 ### Data Analytics Features:
-- **Country-Wise Registration Data**: View and track the number of teams registered from each country.
-- **Submission Progress**: Monitor the number of teams that have submitted projects.
-- **Grading Completion**: Track which partners have completed grading for their teams.
-- **Trends and Insights**: Basic visual analytics (graphs, charts) to help organizers track event readiness and performance.
+- **Country-wise Registrations**: Visualize registration trends by country or region.
+- **Submission Progress**: Track the number of projects submitted in real-time.
+- **Grading Status**: Monitor grading progress and completion rates for partners.
 
-## System Architecture
+## Architecture
 
-The application follows a **three-tier architecture** comprising a frontend, backend, and database. The portal integrates with the main Codeavour website for fetching team data, and supports role-based access for different users (partners, admins).
+### Frontend (React.js)
+- **Dashboard**: Displays key competition statistics and submission data.
+- **Forms**: Submission form for teams to upload projects, and grading form for partners.
+- **Visualization**: Uses **Chart.js** or **D3.js** to visualize data like submission progress and country-wise registrations.
 
-### High-Level Architecture Diagram:
+### Backend (Node.js + Express)
+- **APIs**: RESTful APIs to handle authentication, submissions, grading, and event data.
+- **Real-Time Notifications**: Uses **Socket.io** for real-time updates and notifications to partners.
+- **Background Jobs**: **Bull.js** and **Redis** to handle background tasks like file processing and sending notifications.
 
-```plantuml
-@startuml
-actor Admin
-actor Partner
-Admin --> WebApp: Login / Dashboard
-Partner --> WebApp: Login / Dashboard
-WebApp --> Database: Fetch student/team data
-WebApp --> NotificationService: Send Submission Notification
-WebApp --> AnalyticsService: Fetch stats for dashboard
-WebApp --> GradingService: Enter scores / comments
-Admin --> GradingService: View scores / Generate winners list
-GradingService --> Database: Store grades
-Database --> WebApp: Return data for display
-AnalyticsService --> Database: Query event/submission data
-@enduml
+### Database (PostgreSQL + Sequelize)
+- **Tables**:
+  - **Users**: Role-based access control (admin, partner).
+  - **Teams**: Stores team details and partner codes.
+  - **Submissions**: Stores project submission data.
+  - **Grades**: Stores grading data and feedback.
+  - **Events**: Stores event information (regional, national, international).
+
+## Installation
+
+### Prerequisites
+- **Node.js** (v14+)
+- **PostgreSQL** (v12+)
+- **Redis** (for background jobs)
+- **Docker** (for containerization)
+
+### Steps to Run the Project
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/codeavour-portal.git
+   cd codeavour-portal
