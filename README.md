@@ -63,18 +63,18 @@ The **Codeavour Competition Management and Evaluation Portal** is a web-based pl
 
 2. **Install dependencies**:
 
-```bash
-  Copy code
-  cd backend
-  npm install
-  cd ../frontend
-  npm install
+    ```bash
+      Copy code
+      cd backend
+      npm install
+      cd ../frontend
+      npm install
 
 3. **Set up environment variables: Create a .env file in the backend folder**:
 
-  DATABASE_URL=your-database-url
-  REDIS_URL=your-redis-url
-  JWT_SECRET=your-jwt-secret
+      DATABASE_URL=your-database-url
+      REDIS_URL=your-redis-url
+      JWT_SECRET=your-jwt-secret
 
 4. **Run the PostgreSQL database: Make sure PostgreSQL is running on your local machine or use a hosted version.**
 
@@ -82,54 +82,58 @@ The **Codeavour Competition Management and Evaluation Portal** is a web-based pl
 
 6. **Run the app**:
 
-*Start the backend*:
-```bash
-  cd backend
-  npm run dev
+**Start the backend**:
+    ```bash
+      cd backend
+      npm run dev
 
-*Start the frontend*:
-```bash
-Copy code
-  cd frontend
-  npm start
+**Start the frontend**:
+    ```bash
+    Copy code
+      cd frontend
+      npm start
 
-Run with Docker: Alternatively, you can run the entire application using Docker:
+7. **Run with Docker: Alternatively, you can run the entire application using Docker**:
 
-bash
-Copy code
-docker-compose up
+    ```bash
+    Copy code
+    docker-compose up
 
-API Endpoints
-Authentication
+## API Endpoints
+### Authentication
 POST /api/auth/login: Login a user (admin or partner).
 POST /api/auth/register: Register a new partner.
-Submissions
+### Submissions
 GET /api/submissions: Fetch all submissions for a partner.
 POST /api/submissions: Upload a new project submission.
-Grading
+### Grading
 POST /api/grades: Submit grades for a project.
 GET /api/grades: Fetch grading information for a partner.
-Winners List
+### Winners List
 GET /api/winners/regional: Fetch the regional winners.
 GET /api/winners/national: Fetch the national winners.
 GET /api/winners/international: Fetch the international winners.
-Deployment
 
-Docker:
+## Deployment
 
-Build Docker images:
-```bash
-Copy code
-docker build -t codeavour-portal .
-Run the Docker containers:
-```bash
-Copy code
-docker-compose up
-AWS Elastic Beanstalk:
+### Docker:
+
+**Build Docker images**:
+    ```bash
+    Copy code
+    docker build -t codeavour-portal
+**Run the Docker containers**:
+    ```bash
+    Copy code
+    docker-compose up
+
+## AWS Elastic Beanstalk:
 
 Deploy the backend and frontend using Elastic Beanstalk environments.
 Set up the PostgreSQL database and Redis as external services.
+
 Contribution
+
 Fork the repository.
 Create a new branch (git checkout -b feature/your-feature).
 Commit your changes (git commit -m 'Add some feature').
