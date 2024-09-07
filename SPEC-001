@@ -1,0 +1,35 @@
+= SPEC-001: Codeavour Competition Management and Evaluation Portal :sectnums: :toc:
+
+== Background
+
+The Codeavour coding competition involves a multi-level structure consisting of regional, national, and international events. The management and evaluation portal will centralize submission collection, grading, and winner selection, ensuring smooth coordination across these levels. The portal also needs data analytics capabilities to allow administrators and partners to monitor registration and submission statistics across countries and events. Key outcomes include downloadable reports of winners and data dashboards to facilitate decision-making for national and international-level events.
+
+== Requirements
+
+Here are the updated requirements with MoSCoW prioritization:
+
+=== Must Have:
+
+A web-based portal for partners to access and grade submissions.
+Integration with the Codeavour website to fetch and manage student registrations and team information.
+A submission system for online presentations and offline pitches.
+Notification system for partners when new submissions are received.
+Filtering and displaying of team names based on unique partner codes.
+A grading system that allows partners to input scores and comments.
+Generation of downloadable winners lists at regional, national, and international levels.
+Dashboard showing country-wise registration data, project submissions, event dates, and winners lists.
+
+=== Should Have:
+
+User-friendly interfaces for partners, admins, and competition organizers.
+Role-based access control for administrators and partners.
+Real-time tracking of progress for regional/national events.
+
+=== Could Have:
+
+Automated email reminders for partners who have pending submissions to grade.
+Simple data analytics tools like trends over time and performance summaries for each region or country.
+
+=== Won’t Have:
+
+Real-time collaboration features (e.g., chat, messaging).
