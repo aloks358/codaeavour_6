@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Teams</title>
+</head>
+<body>
+    <h1>Top Teams</h1>
+    {% if top_team %}
+    <h2>Top Team: {{ top_team.name }} (Score: {{ top_team.total_score }})</h2>
+    {% else %}
+    <p>No teams available.</p>
+    {% endif %}
+
+    <h3>Top 5 Teams</h3>
+    <ul>
+        {% for team in top_five %}
+        <li>{{ team.name }} - Score: {{ team.total_score }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

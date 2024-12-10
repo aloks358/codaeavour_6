@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Scores</title>
+</head>
+<body>
+    <h1>Team Scores</h1>
+    <ul>
+        {% for team in team_scores %}
+        <li>
+            <strong>Team Name:</strong> {{ team['team_name'] }}<br>
+            <strong>Scores:</strong>
+            <ul>
+                {% for criterion, score in team['scores'].items() %}
+                <li>{{ criterion }}: {{ score }}</li>
+                {% endfor %}
+            </ul>
+            <strong>Total Score:</strong> {{ team['total_score'] }}
+        </li>
+        <hr>
+        {% endfor %}
+    </ul>
+</body>
+</html>

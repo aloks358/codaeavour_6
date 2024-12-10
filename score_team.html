@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Score Team</title>
+</head>
+<body>
+    <h1>Score Teams</h1>
+    <form method="POST">
+        <label for="team_id">Select Team:</label>
+        <select name="team_id" required>
+            {% for team in teams %}
+            <option value="{{ team.id }}">{{ team.name }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <h2>Rubric Scoring</h2>
+        {% for rubric in ['problem_definition', 'root_cause', 'banner_visual', 'clarity', 'theme_relevance', 
+                          'project_alignment', 'creativity', 'functionality', 'business_clarity', 'target_market'] %}
+        <label for="{{ rubric }}">{{ rubric.replace('_', ' ').title() }} (0-4 in 0.5 steps):</label>
+        <select name="{{ rubric }}" required>
+            {% for i in range(0, 9) %}
+            <option value="{{ i/2 }}">{{ i/2 }}</option>
+            {% endfor %}
+        </select><br><br>
+        {% endfor %}
+        <button type="submit">Submit Scores</button>
+    </form>
+</body>
+</html>
